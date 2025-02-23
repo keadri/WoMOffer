@@ -25,7 +25,7 @@ const translations = {
         contactUs: "Contact Us",
         phone: "Phone",
         email: "Email",
-        address: "Address",
+        address: "Address: Building 15-202, West Xingqiao Xinyuan, Minhang District, Shanghai",
         followUs: "Follow Us"
     },
     zh: {
@@ -54,7 +54,7 @@ const translations = {
         contactUs: "联系我们",
         phone: "电话",
         email: "邮箱",
-        address: "地址",
+        address: "地址：上海市闵行区星侨馨苑西区15-202",
         followUs: "关注我们"
     }
 };

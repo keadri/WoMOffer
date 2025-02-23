@@ -148,15 +148,115 @@ footer {
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
+    /* 导航栏响应式 */
+    .navbar {
+        padding: 0.5rem 3%;
+        flex-direction: column;
     }
-    
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .nav-links {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .nav-links a {
+        margin: 5px;
+        font-size: 14px;
+    }
+
+    /* Hero部分响应式 */
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    /* 统计数据响应式 */
     .stats {
         grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
-    
+
+    .stat-item h3 {
+        font-size: 2rem;
+    }
+
+    /* 服务部分响应式 */
+    .service-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .service-item {
+        padding: 1.5rem;
+    }
+
+    /* 页脚响应式 */
     .footer-content {
         grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* 小屏幕手机适配 */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+        padding: 5px;
+    }
+}
+
+/* 平板设备适配 */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        max-width: 90%;
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+}
+
+/* 确保在大屏幕上内容不会过宽 */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+}
+
+/* 添加触摸设备的交互优化 */
+@media (hover: none) {
+    .nav-links a:active,
+    .service-item:active {
+        opacity: 0.7;
     }
 } 
