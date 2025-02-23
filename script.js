@@ -109,7 +109,7 @@ function updateContent(lang) {
     document.querySelector('.footer-social h3').textContent = translations[lang].followUs;
 
     // 更新页脚社交媒体链接文本
-    const socialLinks = document.querySelectorAll('.social-links a span');
+    const socialLinks = document.querySelectorAll('.social-item span');
     socialLinks[0].textContent = translations[lang].wechat1;
     socialLinks[1].textContent = translations[lang].wechat2;
     socialLinks[2].textContent = translations[lang].redbook1;
@@ -122,43 +122,28 @@ function updateContent(lang) {
     localStorage.setItem('preferredLanguage', lang);
 }
 
-// 添加更新切换按钮文本的函数
-function updateToggleButton(lang) {
-    const toggleButton = document.querySelector('.language-toggle');
-    toggleButton.textContent = lang === 'zh' ? '中文 / English' : 'English / 中文';
-}
-
-// 修改初始化逻辑
-function initializeLanguage() {
+// 修改语言切换事件监听器
+document.addEventListener('DOMContentLoaded', () => {
     const languageToggle = document.querySelector('.language-toggle');
-    if (!languageToggle) {
-        // 如果元素还没加载，等待后重试
-        setTimeout(initializeLanguage, 100);
-        return;
+    
+    // 检查是否有保存的语言偏好
+    const savedLanguage = localStorage.getItem('preferredLanguage') || 'zh';
+    updateContent(savedLanguage);
+    languageToggle.setAttribute('data-current-lang', savedLanguage);
+
+    // 更新切换按钮文本
+    function updateToggleButton(lang) {
+        languageToggle.textContent = lang === 'zh' ? '中文 / English' : 'English / 中文';
     }
+    updateToggleButton(savedLanguage);
 
-    // 强制设置初始语言为中文
-    document.documentElement.lang = 'zh-CN';
-    languageToggle.setAttribute('data-current-lang', 'zh');
-    updateContent('zh');
-    updateToggleButton('zh');
-
-    // 添加点击事件监听器
     languageToggle.addEventListener('click', (e) => {
         e.preventDefault();
         const currentLang = languageToggle.getAttribute('data-current-lang');
         const newLang = currentLang === 'zh' ? 'en' : 'zh';
         
-        document.documentElement.lang = newLang === 'zh' ? 'zh-CN' : 'en';
-        languageToggle.setAttribute('data-current-lang', newLang);
         updateContent(newLang);
         updateToggleButton(newLang);
+        languageToggle.setAttribute('data-current-lang', newLang);
     });
-}
-
-// 页面加载完成后初始化
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeLanguage);
-} else {
-    initializeLanguage();
-} 
+}); 
