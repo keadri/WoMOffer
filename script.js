@@ -106,10 +106,18 @@ function updateContent(lang) {
 document.addEventListener('DOMContentLoaded', () => {
     const languageToggle = document.querySelector('.language-toggle');
     
-    // 检查是否有保存的语言偏好
-    const savedLanguage = localStorage.getItem('preferredLanguage') || 'zh';
-    updateContent(savedLanguage);
-    updateToggleButton(savedLanguage);
+    // 强制初始化为中文
+    updateContent('zh');
+    updateToggleButton('zh');
+    languageToggle.setAttribute('data-current-lang', 'zh');
+
+    // 然后再检查本地存储的语言偏好
+    const savedLanguage = localStorage.getItem('preferredLanguage');
+    if (savedLanguage) {
+        updateContent(savedLanguage);
+        updateToggleButton(savedLanguage);
+        languageToggle.setAttribute('data-current-lang', savedLanguage);
+    }
 
     languageToggle.addEventListener('click', (e) => {
         e.preventDefault();
@@ -118,7 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         updateContent(newLang);
         updateToggleButton(newLang);
-        
         languageToggle.setAttribute('data-current-lang', newLang);
     });
 });
