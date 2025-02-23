@@ -26,7 +26,12 @@ const translations = {
         phone: "Phone",
         email: "Email",
         address: "Address: Building 15-202, West Xingqiao Xinyuan, Minhang District, Shanghai",
-        followUs: "Follow Us"
+        followUs: "Follow Us",
+        wechat1: "WoMoffer_Tiago",
+        wechat2: "WoMoYu_002",
+        redbook1: "WoMOffer",
+        redbook2: "WoMOffer_Tiago",
+        copyright: "© 2024 Wang Mi You Tu WoM Offer. All rights reserved."
     },
     zh: {
         home: "首页",
@@ -55,7 +60,12 @@ const translations = {
         phone: "电话",
         email: "邮箱",
         address: "地址：上海市闵行区星侨馨苑西区15-202",
-        followUs: "关注我们"
+        followUs: "关注我们",
+        wechat1: "WoMoffer_Tiago",
+        wechat2: "WoMoYu_002",
+        redbook1: "WoMOffer",
+        redbook2: "WoMOffer_Tiago",
+        copyright: "© 2024 旺米优途 WoM Offer. 保留所有权利。"
     }
 };
 
@@ -97,6 +107,16 @@ function updateContent(lang) {
     // 更新页脚
     document.querySelector('.footer-info h3').textContent = translations[lang].contactUs;
     document.querySelector('.footer-social h3').textContent = translations[lang].followUs;
+
+    // 更新页脚社交媒体链接文本
+    const socialLinks = document.querySelectorAll('.social-links a span');
+    socialLinks[0].textContent = translations[lang].wechat1;
+    socialLinks[1].textContent = translations[lang].wechat2;
+    socialLinks[2].textContent = translations[lang].redbook1;
+    socialLinks[3].textContent = translations[lang].redbook2;
+
+    // 更新版权信息
+    document.querySelector('.footer-bottom p').textContent = translations[lang].copyright;
 
     // 保存语言选择到本地存储
     localStorage.setItem('preferredLanguage', lang);
