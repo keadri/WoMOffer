@@ -102,21 +102,29 @@ function updateContent(lang) {
     localStorage.setItem('preferredLanguage', lang);
 }
 
-// 添加语言切换事件监听器
+// 修改语言切换事件监听器
 document.addEventListener('DOMContentLoaded', () => {
-    const languageButtons = document.querySelectorAll('.language');
+    const languageToggle = document.querySelector('.language-toggle');
     
     // 检查是否有保存的语言偏好
-    const savedLanguage = localStorage.getItem('preferredLanguage');
-    if (savedLanguage) {
-        updateContent(savedLanguage);
-    }
+    const savedLanguage = localStorage.getItem('preferredLanguage') || 'zh';
+    updateContent(savedLanguage);
+    updateToggleButton(savedLanguage);
 
-    languageButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
-            const lang = button.getAttribute('data-lang');
-            updateContent(lang);
-        });
+    languageToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const currentLang = languageToggle.getAttribute('data-current-lang');
+        const newLang = currentLang === 'zh' ? 'en' : 'zh';
+        
+        updateContent(newLang);
+        updateToggleButton(newLang);
+        
+        languageToggle.setAttribute('data-current-lang', newLang);
     });
-}); 
+});
+
+// 添加更新切换按钮文本的函数
+function updateToggleButton(lang) {
+    const toggleButton = document.querySelector('.language-toggle');
+    toggleButton.textContent = lang === 'zh' ? '中文 / English' : 'English / 中文';
+} 
