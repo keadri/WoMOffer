@@ -122,36 +122,43 @@ function updateContent(lang) {
     localStorage.setItem('preferredLanguage', lang);
 }
 
-// 修改语言切换事件监听器
-document.addEventListener('DOMContentLoaded', () => {
-    const languageToggle = document.querySelector('.language-toggle');
-    
-    // 强制初始化为中文
-    updateContent('zh');
-    updateToggleButton('zh');
-    languageToggle.setAttribute('data-current-lang', 'zh');
+// 添加更新切换按钮文本的函数
+function updateToggleButton(lang) {
+    const toggleButton = document.querySelector('.language-toggle');
+    toggleButton.textContent = lang === 'zh' ? '中文 / English' : 'English / 中文';
+}
 
-    // 然后再检查本地存储的语言偏好
-    const savedLanguage = localStorage.getItem('preferredLanguage');
-    if (savedLanguage) {
-        updateContent(savedLanguage);
-        updateToggleButton(savedLanguage);
-        languageToggle.setAttribute('data-current-lang', savedLanguage);
+// 修改初始化逻辑
+function initializeLanguage() {
+    const languageToggle = document.querySelector('.language-toggle');
+    if (!languageToggle) {
+        // 如果元素还没加载，等待后重试
+        setTimeout(initializeLanguage, 100);
+        return;
     }
 
+    // 强制设置初始语言为中文
+    document.documentElement.lang = 'zh-CN';
+    languageToggle.setAttribute('data-current-lang', 'zh');
+    updateContent('zh');
+    updateToggleButton('zh');
+
+    // 添加点击事件监听器
     languageToggle.addEventListener('click', (e) => {
         e.preventDefault();
         const currentLang = languageToggle.getAttribute('data-current-lang');
         const newLang = currentLang === 'zh' ? 'en' : 'zh';
         
+        document.documentElement.lang = newLang === 'zh' ? 'zh-CN' : 'en';
+        languageToggle.setAttribute('data-current-lang', newLang);
         updateContent(newLang);
         updateToggleButton(newLang);
-        languageToggle.setAttribute('data-current-lang', newLang);
     });
-});
+}
 
-// 添加更新切换按钮文本的函数
-function updateToggleButton(lang) {
-    const toggleButton = document.querySelector('.language-toggle');
-    toggleButton.textContent = lang === 'zh' ? '中文 / English' : 'English / 中文';
+// 页面加载完成后初始化
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeLanguage);
+} else {
+    initializeLanguage();
 } 
