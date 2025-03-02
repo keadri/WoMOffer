@@ -8,7 +8,7 @@ const translations = {
         heroTitle: "WoM Offer Study Abroad Studio",
         heroSubtitle: "Your Guide to Overseas Education",
         aboutTitle: "About Us",
-        aboutText: "WoM Offer is a professional overseas education consulting studio under Wang Mi You Tu. Since our establishment, we have been committed to providing students with the highest quality study abroad consulting services, helping students achieve their dreams of studying overseas.",
+        aboutText: "WoM Offer is a professional overseas education consulting studio under Wang Mi You Tu. Our team is spread across the globe, holding green cards or citizenship in the United States, United Kingdom, Canada, Hong Kong, Macau, and other regions. Our consultants hold master's or doctoral degrees from QS World Top 100 universities and have worked in renowned companies worldwide. Since our establishment, we have been committed to providing students with the highest quality study abroad consulting services, helping students achieve their dreams of studying overseas.",
         consultants: "Professional Consultants",
         successCases: "Success Cases",
         partnerSchools: "Partner Schools",
@@ -31,7 +31,8 @@ const translations = {
         wechat2: "WoMoYu_002",
         redbook1: "WoMOffer",
         redbook2: "WoMOffer_Tiago",
-        copyright: "© 2024 Wang Mi You Tu WoM Offer. All rights reserved."
+        copyright: "© 2024 Wang Mi You Tu WoM Offer. All rights reserved.",
+        offersTitle: "2025 Fall Offer Showcase"
     },
     zh: {
         home: "首页",
@@ -42,7 +43,7 @@ const translations = {
         heroTitle: "WoM Offer 留学工作室",
         heroSubtitle: "为您的留学梦想保驾护航",
         aboutTitle: "关于我们",
-        aboutText: "WoM Offer是旺米优途旗下专业的留学咨询工作室。自成立以来，我们始终致力于为学生提供最优质的留学咨询服务，帮助莘莘学子实现海外求学梦想。",
+        aboutText: "WoM Offer是旺米优途旗下专业的留学咨询工作室。我们的团队遍布全球，拥有美国、英国、加拿大、港澳新等地的绿卡或国籍，硕士或博士学历，毕业于QS世界大学排名前100名校，曾在各地知名企业任职。自成立以来，我们始终致力于为学生提供最优质的留学咨询服务，帮助莘莘学子实现海外求学梦想。",
         consultants: "专业顾问",
         successCases: "成功案例",
         partnerSchools: "合作院校",
@@ -65,7 +66,8 @@ const translations = {
         wechat2: "WoMoYu_002",
         redbook1: "WoMOffer",
         redbook2: "WoMOffer_Tiago",
-        copyright: "© 2024 旺米优途 WoM Offer. 保留所有权利。"
+        copyright: "© 2024 旺米优途 WoM Offer. 保留所有权利。",
+        offersTitle: "2025 Fall 部分Offer展示"
     }
 };
 
@@ -120,6 +122,9 @@ function updateContent(lang) {
 
     // 保存语言选择到本地存储
     localStorage.setItem('preferredLanguage', lang);
+
+    // 更新offers标题
+    document.querySelector('.offers h2').textContent = translations[lang].offersTitle;
 }
 
 // 修改语言切换事件监听器
@@ -145,5 +150,24 @@ document.addEventListener('DOMContentLoaded', () => {
         updateContent(newLang);
         updateToggleButton(newLang);
         languageToggle.setAttribute('data-current-lang', newLang);
+    });
+
+    // 添加offer展示的展开/收起功能
+    const offersHeader = document.querySelector('.offers-header');
+    const offerWall = document.querySelector('.offer-wall');
+    const arrow = document.querySelector('.arrow');
+    const toggleButton = document.querySelector('.toggle-offers');
+
+    toggleButton.addEventListener('click', (e) => {
+        e.stopPropagation(); // 阻止事件冒泡
+        offerWall.classList.toggle('hidden');
+        arrow.classList.toggle('active');
+    });
+
+    // 防止点击标题时触发展开/收起
+    offersHeader.addEventListener('click', (e) => {
+        if (e.target === offersHeader || e.target.tagName === 'H2') {
+            e.stopPropagation();
+        }
     });
 }); 
