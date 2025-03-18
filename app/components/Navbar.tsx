@@ -23,12 +23,18 @@ export default function Navbar() {
     if (section) {
       const offset = 80; // 导航栏高度加一些padding
       const targetPosition = section.offsetTop - offset;
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
+      
+      // 关闭移动端菜单
+      setIsMobileMenuOpen(false);
+      
+      // 添加一个小延迟，确保菜单关闭动画完成后再滚动
+      setTimeout(() => {
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }, 100);
     }
-    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -162,28 +168,28 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-white border-t"
           >
-            <div className="px-4 pt-2 pb-3 space-y-1">
+            <div className="px-4 pt-2 pb-3 space-y-1 flex flex-col">
               <button
                 onClick={() => scrollToSection('services')}
-                className="font-bold text-gray-600 hover:text-gray-900 px-3 py-2 text-sm"
+                className="block w-full text-left font-bold text-gray-600 hover:text-gray-900 px-3 py-2 text-sm"
               >
                 {t('navServices')}
               </button>
               <button
                 onClick={() => scrollToSection('about')}
-                className="font-bold text-gray-600 hover:text-gray-900 px-3 py-2 text-sm"
+                className="block w-full text-left font-bold text-gray-600 hover:text-gray-900 px-3 py-2 text-sm"
               >
                 {t('navTeam')}
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="font-bold text-gray-600 hover:text-gray-900 px-3 py-2 text-sm"
+                className="block w-full text-left font-bold text-gray-600 hover:text-gray-900 px-3 py-2 text-sm"
               >
                 {t('navContact')}
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="block w-full text-center bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition-colors"
+                className="block w-full text-center bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition-colors mt-2"
               >
                 {t('navConsultation')}
               </button>
