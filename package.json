@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "rm -rf out && next build && touch out/.nojekyll && cp -r out/_next out/WoMOffer/ && gh-pages -d out --dotfiles"
+    "deploy": "rm -rf out && next build && touch out/.nojekyll && echo 'www.womoffer.com' > out/CNAME && cp -r public/* out/ && gh-pages -d out --dotfiles"
   },
   "dependencies": {
     "@react-three/drei": "^9.99.0",

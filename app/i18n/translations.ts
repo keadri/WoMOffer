@@ -38,7 +38,7 @@ const translations = {
         description: '母语级别老师负责语言润色和表达，对口专业导师把关专业内容，确保文书的语言地道性和专业性'
       }
     ],
-    navTeam: '关于我们',
+    aboutUs: '关于我们',
     professionalBackground: '我们是谁',
     professionalItems: [
       '来自QS世界百强名校的硕博团队',
@@ -85,13 +85,17 @@ const translations = {
     whyChooseUs: '为什么选择我们',
     whyChooseUs1: '专业团队，丰富经验',
     whyChooseUs2: '个性化解决方案',
-    whyChooseUs3: '全面的支持和跟进'
+    whyChooseUs3: '全面的支持和跟进',
+    navServices: '我们的服务',
+    navTeam: '关于团队',
+    navContact: '联系我们',
+    navConsultation: '免费咨询',
   },
   en: {
     title: 'WoM Offer',
     companyName: 'WoM Offer',
     companyNameEn: 'WoM Offer',
-    navTeam: 'About Us',
+    aboutUs: 'About Us',
     slogan: 'Crossing mountains and seas, connecting dreams. We create a stage of growth for every dreamer. From Shanghai to Silicon Valley, we are with you, turning bold dreams into global reality.',
     freeConsultation: 'Free Consultation',
     ourServices: 'Our Services',
@@ -154,7 +158,7 @@ const translations = {
     address: 'Address',
     addressText: 'Room 15-202, West Area, Xingqiao Xinyuan, Minhang District, Shanghai',
     wechat: 'WeChat',
-    xiaohongshu: 'Xiaohongshu',
+    xiaohongshu: 'RedNote',
     name: 'Name',
     phone: 'Phone',
     consultationType: 'Consultation Type',
@@ -173,7 +177,11 @@ const translations = {
     whyChooseUs: 'Why Choose Us',
     whyChooseUs1: 'Professional team with rich experience',
     whyChooseUs2: 'Personalized solutions',
-    whyChooseUs3: 'Comprehensive support and follow-up'
+    whyChooseUs3: 'Comprehensive support and follow-up',
+    navServices: 'Our Services',
+    navTeam: 'About Team',
+    navContact: 'Contact Us',
+    navConsultation: 'Free Consultation',
   }
 };
 

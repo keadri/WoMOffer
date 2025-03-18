@@ -3,8 +3,21 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import translations from '../i18n/translations';
 
+export type TranslationKey =
+  | 'companyName'
+  | 'companyNameEn'
+  | 'slogan'
+  | 'freeConsultation'
+  | 'ourServices'
+  | 'contactUs'
+  | 'navServices'
+  | 'navTeam'
+  | 'navContact'
+  | 'navConsultation'
+  | keyof typeof translations.zh
+  | keyof typeof translations.en;
+
 type Language = 'zh' | 'en';
-type TranslationKey = keyof typeof translations.zh | keyof typeof translations.en;
 
 interface LanguageContextType {
   language: Language;

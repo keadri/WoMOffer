@@ -319,7 +319,7 @@ export default function Home() {
                       className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-white hover:shadow-xl transition-all duration-300"
                     >
                       <img
-                        src={`/offers/offer${num}.jpg`}
+                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/offers/offer${num}.jpg`}
                         alt={`录取通知书 ${num}`}
                         className={`w-full h-full object-contain transition-all duration-300 ${loadedImages[num] ? 'opacity-100' : 'opacity-0'}`}
                         loading="lazy"

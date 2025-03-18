@@ -25,23 +25,23 @@ const Earth3D: React.FC = () => {
 
     // Load texture
     const textureLoader = new THREE.TextureLoader();
-    const earthTexture = textureLoader.load(
-      process.env.NODE_ENV === 'production' ? '/Web/textures/earth-texture.jpg' : '/textures/earth-texture.jpg',
+    const texture = textureLoader.load(
+      process.env.NEXT_PUBLIC_BASE_PATH + '/textures/earth-texture.jpg',
       () => {
-        console.log('Texture loaded successfully');
+        console.log("Texture loaded successfully");
         setIsLoading(false);
       },
       undefined,
       (error) => {
-        console.error('Error loading earth texture:', error);
-        setError('Failed to load earth texture');
+        console.error("Error loading earth texture:", error);
+        setError("Failed to load earth texture");
         setIsLoading(false);
       }
     );
 
     // Earth material
     const earthMaterial = new THREE.MeshPhongMaterial({
-      map: earthTexture,
+      map: texture,
       shininess: 25
     });
 

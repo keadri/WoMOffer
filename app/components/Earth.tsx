@@ -8,9 +8,9 @@ import { Mesh } from 'three'
 export default function Earth() {
   const earthRef = useRef<Mesh>(null)
   const textures = useTexture({
-    map: '/textures/earth-texture.jpg',
-    bumpMap: '/textures/earth-bump.jpg',
-    specularMap: '/textures/earth-specular.jpg',
+    map: process.env.NEXT_PUBLIC_BASE_PATH + '/textures/earth-texture.jpg',
+    bumpMap: process.env.NEXT_PUBLIC_BASE_PATH + '/textures/earth-bump.jpg',
+    specularMap: process.env.NEXT_PUBLIC_BASE_PATH + '/textures/earth-specular.jpg',
   })
   
   useFrame(() => {
