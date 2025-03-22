@@ -22,8 +22,8 @@ const ContactInfo = () => {
           <span>{t('wechat')}</span>
         </div>
         <div className="pl-7 space-y-1 text-sm">
-          <p>002_WoM</p>
           <p>wom_tiago</p>
+          <p>002_WoM</p>
         </div>
       </div>
       <div className="space-y-2">
