@@ -54,7 +54,7 @@ const translations = {
     ],
     ourCommitment: '我们的承诺',
     commitmentItems: [
-      '免费咨询 15-20 分钟，不夸大宣传，只提供真实建议',
+      '免费语音咨询 15-20 分钟，不夸大宣传，只提供真实建议',
       '不强制消费，所有服务透明，无隐形费用',
       '全程对接专业导师，拒绝销售型顾问'
     ],
@@ -147,7 +147,7 @@ const translations = {
     ],
     ourCommitment: 'Our Commitment',
     commitmentItems: [
-      '15-20 minutes free consultation, honest advice without exaggeration',
+      '15-20 minutes free voice consultation, honest advice without exaggeration',
       'No forced sales, transparent services with no hidden fees',
       'Direct access to professional mentors, no sales consultants'
     ],
