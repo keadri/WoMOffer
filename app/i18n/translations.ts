@@ -3,7 +3,8 @@ const translations = {
     title: 'WoM Offer',
     companyName: '上海旺米优途科技教育有限公司',
     companyNameEn: 'WoM Offer',
-    slogan: '跨越山海，连接梦想。我们为每一个追梦者打造成长的舞台。从上海到硅谷，我们与你一起，将大胆的梦想变为全球现实。',
+    slogan: '跨越距离，连接梦想',
+    sloganDescription: '为每一位追梦者提供成长平台。从上海到硅谷，我们与你同行，将远大抱负转化为全球成就。',
     freeConsultation: '免费咨询',
     ourServices: '我们的服务',
     services: [
@@ -96,7 +97,8 @@ const translations = {
     companyName: 'WoM Offer',
     companyNameEn: 'WoM Offer',
     aboutUs: 'About Us',
-    slogan: 'Crossing mountains and seas, connecting dreams. We create a stage of growth for every dreamer. From Shanghai to Silicon Valley, we are with you, turning bold dreams into global reality.',
+    slogan: 'Overcoming distances, uniting dreams',
+    sloganDescription: 'We provide a platform for growth to every dreamer. From Shanghai to Silicon Valley, we stand by you, transforming bold aspirations into global success.',
     freeConsultation: 'Free Consultation',
     ourServices: 'Our Services',
     services: [
